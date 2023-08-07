@@ -4,12 +4,10 @@ import type { QueryDatabaseParameters } from '@notionhq/client/build/src/api-end
 export default {
 	filter: {
 		and: [
-			{ property: 'Status', select: { does_not_equal: 'Completed' } },
-			{ property: 'Status', select: { does_not_equal: 'Nope' } },
-			{ property: 'Type', select: { equals: 'Task' } }
+			//{ property: 'Status', select: { does_not_equal: 'Done' } },
 		]
 	},
-	dateProperty: 'Scheduled',
+	dateProperty: 'Action Date',
 	titleProperty: 'Name',
 	busy: ICalEventBusyStatus.FREE
 } as {
