@@ -37,6 +37,7 @@ export const GET: RequestHandler = async ({ params, url }) => {
 
 	const filtered: {
 		title: string;
+		url: string;
 		date: { start: string; end: string | null; time_zone: string | null };
 	}[] = databaseEntries.flatMap((object) => {
 		if (object.properties[config.dateProperty].date === null) {
@@ -45,7 +46,8 @@ export const GET: RequestHandler = async ({ params, url }) => {
 		return [
 			{
 				title: object.properties[config.titleProperty].title[0].text.content,
-				date: object.properties[config.dateProperty].date
+				date: object.properties[config.dateProperty].date,
+				url: object.url
 			}
 		];
 	});
@@ -60,7 +62,8 @@ export const GET: RequestHandler = async ({ params, url }) => {
 			end: new Date(Date.parse(event.date.end ?? event.date.start) + 86400000), // end date is exclusive, so add 1 day
 			allDay: true,
 			summary: event.title,
-			busystatus: config.busy
+			busystatus: config.busy,
+			url: event.url
 		});
 	});
 
