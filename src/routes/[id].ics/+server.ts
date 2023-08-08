@@ -43,9 +43,12 @@ export const GET: RequestHandler = async ({ params, url }) => {
 		if (object.properties[config.dateProperty].date === null) {
 			return [];
 		}
-		
+
+		let title = object.properties[config.titleProperty].title[0].text.content 
+
+		//optionally show some extra data based on status
 		let status = object.properties['Status'].status.name; 
-		let title = object.properties[config.titleProperty].title[0].text.content + " [" + status + "] ";
+		if(!status.includes("Not started")) title += " [" + status + "] ";
 
 		return [
 			{
