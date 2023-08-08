@@ -43,9 +43,13 @@ export const GET: RequestHandler = async ({ params, url }) => {
 		if (object.properties[config.dateProperty].date === null) {
 			return [];
 		}
+		
+		let status = object.properties['Status'].status.name; 
+		let title = object.properties[config.titleProperty].title[0].text.content + " [" + status + "] ";
+
 		return [
 			{
-				title: object.properties[config.titleProperty].title[0].text.content,
+				title: title ,
 				date: object.properties[config.dateProperty].date,
 				url: object.url
 			}
