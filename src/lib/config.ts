@@ -5,6 +5,7 @@ export default {
 	filter: {
 		and: [
 			{ property: 'Status', status: { does_not_equal: 'Done' } },
+			{ property: 'Status', status: { does_not_equal: 'Canceled' } }
 		]
 	},
 	dateProperty: 'Action Date Extended',
