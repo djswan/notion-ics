@@ -61,7 +61,7 @@ export const GET: RequestHandler = async ({ params, url }) => {
 
 	const calendar = ical({
 		name: databaseMetadata.title[0].text.content,
-		prodId: { company: 'Tomi Chen', language: 'EN', product: 'notion-ics' }
+		prodId: { company: 'Swanepoel', language: 'EN', product: 'notion-ics' }
 	});
 	filtered.forEach((event) => {
 		calendar.createEvent({

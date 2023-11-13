@@ -7,7 +7,7 @@ export default {
 			//{ property: 'Status', select: { does_not_equal: 'Done' } },
 		]
 	},
-	dateProperty: 'Action Date',
+	dateProperty: 'Action Date Extended',
 	titleProperty: 'Name',
 	busy: ICalEventBusyStatus.FREE
 } as {
