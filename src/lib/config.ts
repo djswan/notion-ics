@@ -4,7 +4,7 @@ import type { QueryDatabaseParameters } from '@notionhq/client/build/src/api-end
 export default {
 	filter: {
 		and: [
-			//{ property: 'Status', select: { does_not_equal: 'Done' } },
+			{ property: 'Status', status: { does_not_equal: 'Done' } },
 		]
 	},
 	dateProperty: 'Action Date Extended',

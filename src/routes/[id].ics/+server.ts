@@ -50,10 +50,19 @@ export const GET: RequestHandler = async ({ params, url }) => {
 		let status = object.properties['Status'].status.name; 
 		if(!status.includes("Not started")) title += " [" + status + "] ";
 
+		//console.log(object.properties[config.dateProperty].date );
+		let date = object.properties[config.dateProperty].date || 
+		{ 
+			//support formulas
+			start: new Date(object.properties[config.dateProperty].formula.string).toISOString().split('T')[0], 
+			end: null, time_zone: null 
+		};
+
+
 		return [
 			{
 				title: title ,
-				date: object.properties[config.dateProperty].date,
+				date: date,
 				url: object.url
 			}
 		];
